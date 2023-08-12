@@ -1,27 +1,9 @@
 
-#include "common.h"
-#include "markdown.h"
+#include "parser/common.h"
+#include "parser/markdown/markdown.h"
 
 namespace Notes::Tool::Markdown
 {
-
-Title::Level Title::isTitle(std::string_view str)
-{
-    std::size_t level = 0;
-
-    while (level < str.size() && str[level] == '#')
-        level++;
-
-    auto spacePosition = level;
-    auto namePosition = spacePosition + 1;
-
-    if (!level                     ||
-        namePosition >= str.size() ||
-        str[spacePosition] != ' ')
-        return Title::Level::None;
-
-    return static_cast<Title::Level>(level);
-}
 
 std::vector<Title> findTitles(std::string_view text)
 {

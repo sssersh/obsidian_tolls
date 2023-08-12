@@ -1,6 +1,6 @@
 #pragma once
 
-#include "i_parser.h"
+#include "parser/i_parser.h"
 
 namespace Notes::Tool
 {

@@ -1,5 +1,5 @@
 
-#include "common.h"
+#include "parser/common.h"
 
 namespace Notes::Tool::Utils
 {

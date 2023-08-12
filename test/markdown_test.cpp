@@ -1,9 +1,7 @@
 
-#include "markdown.h"
+#include "parser/markdown/markdown.h"
 
 #include <gmock/gmock.h>
-
-#include <string_view>
 
 namespace Notes::Tool::Markdown
 {
