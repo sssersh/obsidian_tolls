@@ -44,6 +44,8 @@ struct Title
         return m_range;
     }
 
+    static Title::Level isTitle(std::string_view str);
+
     static Title createTitle(std::string_view text, Level level, Range range)
     {
         auto titleData = Utils::getSubstr(text, range);
@@ -59,8 +61,6 @@ private:
     std::string_view m_name;
 };
 
-// TODO: add infinitely to Range and use it here
-Title::Level isTitle(std::string_view str, Range range = { 0, str.size() });
 std::vector<Title> findTitles(std::string_view text);
 std::vector<Range> findHorizontalDelimeters(std::string_view text);
 

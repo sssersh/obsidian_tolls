@@ -5,7 +5,7 @@
 namespace Notes::Tool::Markdown
 {
 
-Title::Level isTitle(std::string_view str, Range range)
+Title::Level Title::isTitle(std::string_view str)
 {
     std::size_t level = 0;
 
@@ -34,8 +34,9 @@ std::vector<Title> findTitles(std::string_view text)
         if (pos == std::string_view::npos)
             break;
 
-        Range titleRange { pos, text.size() - pos };
-        if (auto level = isTitle(text, titleRange); level != Title::Level::None)
+        std::string_view titleCandidate { text.begin() + pos, text.end() };
+        Title::Level level;
+        if (Utils::isLineBeginning(text, pos) && (level = Title::isTitle(titleCandidate), level != Title::Level::None))
         {
             auto begin = pos;
             pos = text.find("\n", pos);
