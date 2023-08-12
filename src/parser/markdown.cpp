@@ -1,10 +1,11 @@
 
+#include "common.h"
 #include "markdown.h"
 
 namespace Notes::Tool::Markdown
 {
 
-Title::Level isTitle(std::string_view str)
+Title::Level isTitle(std::string_view str, Range range)
 {
     std::size_t level = 0;
 
@@ -26,20 +27,29 @@ std::vector<Title> findTitles(std::string_view text)
 {
     std::vector<Title> result;
 
-    std::size_t pos = 0, prev = 0, begin = 0;
-	while ((pos != std::string_view::npos) && (pos = text.find("#", prev)))
+    std::size_t pos = 0, prev = 0;
+	while (true)
     {
-        if (auto level = isTitle({ text.begin() + pos, text.end() }); level != Title::Level::None)
+        pos = text.find("#", prev);
+        if (pos == std::string_view::npos)
+            break;
+
+        Range titleRange { pos, text.size() - pos };
+        if (auto level = isTitle(text, titleRange); level != Title::Level::None)
         {
             auto begin = pos;
             pos = text.find("\n", pos);
-            Title title
-            {
-                .m_level = level,
-                .m_range = { begin, pos != std::string_view::npos ? pos : text.size() } 
-            };
+            Range range { begin, pos != std::string_view::npos ? pos : text.size() };
+            auto title = Title::createTitle(text, level, range);
             result.push_back(std::move(title));
         }
+        else
+        {
+            ++pos;
+        }
+        if (pos == std::string_view::npos || pos >= text.size())
+            break;
+
         prev = pos;
     }
 

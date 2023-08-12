@@ -69,6 +69,10 @@
         "sstream": "cpp",
         "streambuf": "cpp",
         "string": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "fstream": "cpp",
+        "list": "cpp",
+        "stack": "cpp",
+        "unordered_set": "cpp"
     }
 }

@@ -20,19 +20,21 @@ struct Range
         return m_begin;
     }
 
-    std::size_t end() const noexcept
+    std::size_t size() const noexcept
     {
-        return m_end;
+        return m_end - m_begin;
     }
 
     bool isContainedInString(std::string_view str)
     {
-        return begin() <= str.size() && end() <= str.size();
+        return begin() <= str.size() && (begin() + size()) <= str.size();
     }
-
+    
 private:
     std::size_t m_begin;
     std::size_t m_end;
 };
+
+// TODO: оператор сравнения, чтобы можно было в set хранить
 
 } // namespace Notes::Tool
