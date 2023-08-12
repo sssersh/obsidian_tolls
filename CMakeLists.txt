@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD 20)
 add_library(note_parser
     src/parser/common.cpp
     src/parser/markdown/markdown.cpp
+    src/parser/markdown/base_element.cpp
     src/parser/markdown/title.cpp
     src/parser/questions_parser.cpp
 )

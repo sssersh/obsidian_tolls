@@ -39,11 +39,4 @@ std::vector<Title> findTitles(std::string_view text)
     return result;
 }
 
-std::vector<Range> findHorizontalDelimeters(std::string_view text)
-{
-    // TODO: delimeter - "\n[-][-][-][-]*\n"
-    // позиция с N+1 от текущего разделителя до следующего разделителя - значение
-    return {};
-}
-
 } // namespace Notes::Tool::Markdown

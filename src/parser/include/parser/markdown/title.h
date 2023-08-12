@@ -1,13 +1,13 @@
 #pragma once
 
-#include "parser/range.h"
+#include "parser/markdown/base_element.h"
 
 #include <string_view>
 
 namespace Notes::Tool::Markdown
 {
 
-struct Title
+struct Title : BaseElement
 {
     enum class Level
     {
@@ -24,14 +24,12 @@ struct Title
 
     std::string_view getName() const noexcept;
     Level getLevel() const noexcept;
-    Range getRange() const noexcept;
 
     static Title::Level isTitle(std::string_view str);
     static Title createTitle(std::string_view text, Level level, Range range);
 
 private:
     Level m_level;
-    Range m_range;
     std::string_view m_name;
 };
 

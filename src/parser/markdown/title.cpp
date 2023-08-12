@@ -24,8 +24,8 @@ Title::Level Title::isTitle(std::string_view str)
 }
 
 Title::Title(Level level, Range range, std::string_view name)
-    : m_level(level)
-    , m_range(range)
+    : BaseElement(range)
+    , m_level(level)
     , m_name(name)
 {}
 
@@ -37,11 +37,6 @@ std::string_view Title::getName() const noexcept
 Title::Level Title::getLevel() const noexcept 
 {
     return m_level;
-}
-
-Range Title::getRange() const noexcept
-{
-    return m_range;
 }
 
 Title Title::createTitle(std::string_view text, Level level, Range range)
