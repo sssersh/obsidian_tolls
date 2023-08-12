@@ -1,21 +1,12 @@
 #pragma once
 
-#include <stdexcept>
+#include "range.h"
 
-namespace Notes::Tool::Markdown
+#include <string_view>
+
+namespace Notes::Tool::Utils
 {
 
-struct Range
-{
-    Range(std::size_t begin, std::size_t end)
-        : m_begin(begin)
-        , m_end(end)
-    {
-        if (end < begin) throw std::runtime_error("Incorrect range");
-    }
+std::string_view getSubstr(std::string_view origin, Range range);
 
-    std::size_t m_begin;
-    std::size_t m_end;
-};
-
-} // namespace Notes::Tool
+} // namespace Notes::Tool::Utils

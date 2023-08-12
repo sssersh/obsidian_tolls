@@ -7,6 +7,7 @@ project(tool)
 set(CMAKE_CXX_STANDARD 20)
 
 add_library(note_parser
+    src/parser/common.cpp
     src/parser/markdown.cpp
     src/parser/questions_parser.cpp
 )

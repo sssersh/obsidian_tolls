@@ -1,17 +1,8 @@
 
 #include "markdown.h"
 
-#include <regex>
-
 namespace Notes::Tool::Markdown
 {
-
-// std::string_view getSubstr(std::string_view origin, Range range);
-// {
-//     if (origin.size() <= range.begin() ||
-//         origin.size() <= range.end()
-//     )
-// }
 
 Title::Level isTitle(std::string_view str)
 {

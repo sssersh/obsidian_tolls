@@ -5,6 +5,7 @@ find_package(GTest REQUIRED)
 
 add_executable(${PROJECT_NAME}
     common_test.cpp
+    range_unit.cpp
     markdown_test.cpp
     question_parser_test.cpp
 )
