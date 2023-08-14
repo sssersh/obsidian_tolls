@@ -24,7 +24,7 @@ Title::Level Title::isTitle(std::string_view str)
 }
 
 Title::Title(Level level, Range range, std::string_view name)
-    : BaseElement(range)
+    : Element(range)
     , m_level(level)
     , m_name(name)
 {}

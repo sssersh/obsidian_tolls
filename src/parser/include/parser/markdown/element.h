@@ -7,12 +7,19 @@
 namespace Notes::Tool::Markdown
 {
 
-struct BaseElement
+struct Element
 {
-    BaseElement(Range range);
+    enum class Necesserity
+    {
+        Optional = 0,
+        Mandatory
+    };
+
+    Element(Necesserity necesserity, Range range);
     Range getRange() const noexcept;
 
 private:
+    Necesserity m_necesserity;
     Range m_range;
 };
 

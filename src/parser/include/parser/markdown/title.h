@@ -1,13 +1,13 @@
 #pragma once
 
-#include "parser/markdown/base_element.h"
+#include "parser/markdown/element.h"
 
 #include <string_view>
 
 namespace Notes::Tool::Markdown
 {
 
-struct Title : BaseElement
+struct Title : Element
 {
     enum class Level
     {
