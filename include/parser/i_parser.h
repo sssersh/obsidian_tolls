@@ -5,7 +5,7 @@
 
 #include <string>
 
-namespace Notes::Tool
+namespace Notes::Parser
 {
 
 template<typename T>
@@ -15,7 +15,7 @@ public:
     virtual T parse(std::string_view rawText) = 0;
 };
 
-using IQuestionParser = IBaseParser<Questions>;
+//using IQuestionParser = IBaseParser<Questions>;
 using INoteParser = IBaseParser<INote>;
 
-} // Notes::Tool
+} // Notes::Parser

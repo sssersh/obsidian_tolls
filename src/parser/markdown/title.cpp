@@ -2,7 +2,7 @@
 #include "parser/markdown/title.h"
 #include "parser/common.h"
 
-namespace Notes::Tool::Markdown
+namespace Notes::Parser::Markdown
 {
 
 Title::Level Title::isTitle(std::string_view str)
@@ -48,4 +48,4 @@ Title Title::createTitle(std::string_view text, Level level, Range range)
     return { level, range, name };
 }
 
-} // namespace Notes::Tool::Markdown
+} // namespace Notes::Parser::Markdown

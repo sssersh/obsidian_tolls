@@ -5,10 +5,10 @@
 
 #include <string_view>
 
-namespace Notes::Tool::Markdown
+namespace Notes::Parser::Markdown
 {
 
 std::vector<Title> findTitles(std::string_view text);
 std::vector<Range> findHorizontalDelimeters(std::string_view text);
 
-} // namespace Notes::Tool::Markdown
+} // namespace Notes::Markdown

@@ -3,7 +3,7 @@
 
 #include <gmock/gmock.h>
 
-namespace Notes::Tool::Markdown
+namespace Notes::Parser::Markdown
 {
 
 static constexpr std::string_view correctTitles = R"(
@@ -20,40 +20,40 @@ static constexpr std::string_view incorrectTitles = R"(
 
 TEST(IsTitleTest, Success)
 {
-    ASSERT_EQ(Markdown::Title::isTitle("# Title 1"), Markdown::Title::Level::First);
-    ASSERT_EQ(Markdown::Title::isTitle("## Title 1"), Markdown::Title::Level::Second);
-    ASSERT_EQ(Markdown::Title::isTitle("### Title 1"), Markdown::Title::Level::Third);
-    ASSERT_EQ(Markdown::Title::isTitle("#### Title 1"), Markdown::Title::Level::Fours);
-    ASSERT_EQ(Markdown::Title::isTitle("##### Title 1"), Markdown::Title::Level::Fivth);
-    ASSERT_EQ(Markdown::Title::isTitle("###### Title 1"), Markdown::Title::Level::Sixth);
+    ASSERT_EQ(Title::isTitle("# Title 1"), Title::Level::First);
+    ASSERT_EQ(Title::isTitle("## Title 1"), Title::Level::Second);
+    ASSERT_EQ(Title::isTitle("### Title 1"), Title::Level::Third);
+    ASSERT_EQ(Title::isTitle("#### Title 1"), Title::Level::Fours);
+    ASSERT_EQ(Title::isTitle("##### Title 1"), Title::Level::Fivth);
+    ASSERT_EQ(Title::isTitle("###### Title 1"), Title::Level::Sixth);
 }
 
 TEST(IsTitleTest, Fail)
 {
-    ASSERT_EQ(Markdown::Title::isTitle(""), Markdown::Title::Level::None);
-    ASSERT_EQ(Markdown::Title::isTitle("#"), Markdown::Title::Level::None);
-    ASSERT_EQ(Markdown::Title::isTitle("# "), Markdown::Title::Level::None);
-    ASSERT_EQ(Markdown::Title::isTitle(" "), Markdown::Title::Level::None);
-    ASSERT_EQ(Markdown::Title::isTitle(" #"), Markdown::Title::Level::None);
-    ASSERT_EQ(Markdown::Title::isTitle(" # "), Markdown::Title::Level::None);
+    ASSERT_EQ(Title::isTitle(""), Title::Level::None);
+    ASSERT_EQ(Title::isTitle("#"), Title::Level::None);
+    ASSERT_EQ(Title::isTitle("# "), Title::Level::None);
+    ASSERT_EQ(Title::isTitle(" "), Title::Level::None);
+    ASSERT_EQ(Title::isTitle(" #"), Title::Level::None);
+    ASSERT_EQ(Title::isTitle(" # "), Title::Level::None);
 }
 
 TEST(FindTitlesTest, Success)
 {
-    auto result = Markdown::findTitles(correctTitles);
+    auto result = findTitles(correctTitles);
 
     ASSERT_EQ(result.size(), 3);
     ASSERT_EQ(result[0].getName(), "Title 1");
     ASSERT_EQ(result[1].getName(), "Title 2");
     ASSERT_EQ(result[2].getName(), "Title 3");
-    ASSERT_EQ(result[0].getLevel(), Title::Level::First);
-    ASSERT_EQ(result[1].getLevel(), Title::Level::Second);
-    ASSERT_EQ(result[2].getLevel(), Title::Level::Third);
+    ASSERT_EQ(result[0].getLevel(), Title::Title::Level::First);
+    ASSERT_EQ(result[1].getLevel(), Title::Title::Level::Second);
+    ASSERT_EQ(result[2].getLevel(), Title::Title::Level::Third);
 }
 
 TEST(FindTitlesTest, Fail)
 {
-    ASSERT_TRUE(Markdown::findTitles(incorrectTitles).empty());
+    ASSERT_TRUE(findTitles(incorrectTitles).empty());
 }
 
-} // namespace Notes::Tool::Markdown
+} // namespace Notes::Parser::Markdown

@@ -3,7 +3,7 @@
 
 #include <gtest/gtest.h>
 
-namespace Notes::Tool::Utils
+namespace Notes::Parser::Utils
 {
 
 TEST(Common, GetSubstr)
@@ -23,4 +23,4 @@ TEST(Common, isLineBeginning)
     ASSERT_FALSE(isLineBeginning("a\nb", 1));
 }
 
-} // namespace Notes::Tool::Utils
+} // namespace Notes::Parser::Utils

@@ -4,7 +4,7 @@
 
 #include <string_view>
 
-namespace Notes::Tool::Markdown
+namespace Notes::Parser::Markdown
 {
 
 struct Title : Element
@@ -37,4 +37,4 @@ private:
 std::vector<Title> findTitles(std::string_view text);
 std::vector<Range> findHorizontalDelimeters(std::string_view text);
 
-} // namespace Notes::Tool::Markdown
+} // namespace Notes::Parser::Markdown

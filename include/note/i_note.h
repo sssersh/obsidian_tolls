@@ -2,7 +2,7 @@
 
 #include <string_view>
 
-namespace Notes::Tool
+namespace Notes
 {
 
 class INote
@@ -21,4 +21,4 @@ public:
 
 };
 
-} // Notes::Tool
+} // Notes

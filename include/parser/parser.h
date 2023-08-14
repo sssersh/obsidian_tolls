@@ -2,7 +2,7 @@
 
 #include "parser/i_parser.h"
 
-namespace Notes::Tool
+namespace Notes::Parser
 {
 
 template<typename T>
@@ -12,7 +12,7 @@ public:
     T parse(std::string_view rawText) override;
 };
 
-using QuestionParser = Parser<Questions>;
+//using QuestionParser = Parser<Questions>;
 using NoteParser = Parser<INote>;
 
-} // namespace Notes::Tool
+} // namespace Notes::Parser

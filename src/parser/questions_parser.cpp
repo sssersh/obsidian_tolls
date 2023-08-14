@@ -3,16 +3,16 @@
 
 #include <regex>
 
-namespace Notes::Tool
+namespace Notes::Parser
 {
 
-template<>
-Questions Parser<Questions>::parse(std::string_view rawText)
-{
+// template<>
+// Questions Parser<Questions>::parse(std::string_view rawText)
+// {
 
 
-    (void) rawText;
-    return {};
-}
+//     (void) rawText;
+//     return {};
+// }
 
-} // namespace Notes::Tool
+} // namespace Notes::Parser

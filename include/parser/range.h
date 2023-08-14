@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <string_view>
 
-namespace Notes::Tool
+namespace Notes
 {
 
 struct Range
@@ -37,4 +37,4 @@ private:
 
 // TODO: оператор сравнения, чтобы можно было в set хранить
 
-} // namespace Notes::Tool
+} // namespace Notes

@@ -2,7 +2,7 @@
 #include "parser/common.h"
 #include "parser/markdown/markdown.h"
 
-namespace Notes::Tool::Markdown
+namespace Notes::Parser::Markdown
 {
 
 std::vector<Title> findTitles(std::string_view text)
@@ -39,4 +39,4 @@ std::vector<Title> findTitles(std::string_view text)
     return result;
 }
 
-} // namespace Notes::Tool::Markdown
+} // namespace Notes::Parser::Markdown

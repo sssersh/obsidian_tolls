@@ -22,7 +22,7 @@ Question 6
 
 // TEST(QuestionParserTest, Test1)
 // {
-//     auto parser = Notes::Tool::QuestionParser{};
+//     auto parser = Notes::QuestionParser{};
 
 //     auto result = parser.parse(testText1);
 
