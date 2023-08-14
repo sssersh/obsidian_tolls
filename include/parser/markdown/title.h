@@ -7,6 +7,8 @@
 namespace Notes::Parser::Markdown
 {
 
+// may be add interface?
+// These class seems like common
 struct Title : Element
 {
     enum class Level
